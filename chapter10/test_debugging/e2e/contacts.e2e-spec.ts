@@ -1,9 +1,9 @@
-import {browser, by, element, ExpectedConditions as EC} from 'protractor';
+import { browser, by, element, ExpectedConditions as EC } from 'protractor';
 
 describe('contacts test', () => {
   beforeEach(() => {
     return browser.waitForAngularEnabled(true).then(
-        () => {return browser.get('/#/contact/4')});
+      () => { return browser.get('/contact/4') });
   });
 
   /*
@@ -35,28 +35,28 @@ describe('contacts test', () => {
     let dialogTitle = element(by.css('app-contact-feed h2.mat-dialog-title'))
 
     return feedButton.click()
-        .then(() => {
-          return dialogTitle.getText();
-        })
-        .then((dialogText) => {
-          expect(dialogText).toContain('Latest posts from Craig Service')
+      .then(() => {
+        return dialogTitle.getText();
+      })
+      .then((dialogText) => {
+        expect(dialogText).toContain('Latest posts from Craig Service')
 
-          // This closes the dialog, but we need to wait for the animation to
-          // complete, even with automatic angular waiting enable.
-          return closeButton.click();
-        })
-        .then(() => {
-          // Wait for the close animation to finish.
-          return browser.wait(
-              EC.stalenessOf(dialogTitle), 3000, 'Waiting for dialog to close');
-        })
-        .then(() => {
-          return dialogTitle.isPresent();
-        })
-        .then((dialogTitleIsPresent) => {
-          expect(dialogTitleIsPresent).toBeFalsy();
-          done();
-        });
+        // This closes the dialog, but we need to wait for the animation to
+        // complete, even with automatic angular waiting enable.
+        return closeButton.click();
+      })
+      .then(() => {
+        // Wait for the close animation to finish.
+        return browser.wait(
+          EC.stalenessOf(dialogTitle), 3000, 'Waiting for dialog to close');
+      })
+      .then(() => {
+        return dialogTitle.isPresent();
+      })
+      .then((dialogTitleIsPresent) => {
+        expect(dialogTitleIsPresent).toBeFalsy();
+        done();
+      });
   })
 
   it('should open the dialog with waitForAngular', async () => {
@@ -67,15 +67,15 @@ describe('contacts test', () => {
     await feedButton.click()
     let dialogText = await dialogTitle.getText();
     expect(dialogText).toContain('Latest posts from Craig Service')
-    debugger
+    debugger;
 
-        // This closes the dialog, but we need to wait for the animation to
-        // complete, even with automatic angular waiting enable.
-        await closeButton.click();
+    // This closes the dialog, but we need to wait for the animation to
+    // complete, even with automatic angular waiting enable.
+    await closeButton.click();
 
     // Wait for the close animation to finish.
     await browser.wait(
-        EC.stalenessOf(dialogTitle), 3000, 'Waiting for dialog to close');
+      EC.stalenessOf(dialogTitle), 3000, 'Waiting for dialog to close');
     let dialogTitleIsPresent = await dialogTitle.isPresent();
     expect(dialogTitleIsPresent).toBeFalsy();
   });

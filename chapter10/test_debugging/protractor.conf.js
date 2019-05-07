@@ -17,11 +17,11 @@ exports.config = {
   framework: 'jasmine',
   jasmineNodeOpts: {
     showColors: true,
-    defaultTimeoutInterval: 30000,
-    print: function() {}
+    defaultTimeoutInterval: 60000,
+    print: function () { }
   },
   SELENIUM_PROMISE_MANAGER: false, // Disable the Control Flow
-  beforeLaunch: function() {
+  beforeLaunch: function () {
     require('ts-node').register({
       project: 'e2e'
     });
