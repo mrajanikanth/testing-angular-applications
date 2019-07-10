@@ -7,6 +7,7 @@ describe('Contacts App title test', () => {
     browser.get(appUrl);
     browser.getTitle().then((actualTitle) => {
       expect(actualTitle).toEqual(expectedTitle);
+
     });
   });
 });

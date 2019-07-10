@@ -11,7 +11,7 @@ import { AppMaterialModule } from './app.material.module';
 import { ContactDetailComponent } from './contacts/contact-detail';
 import { ContactEditComponent } from './contacts/contact-edit';
 import { ContactListComponent } from './contacts/contact-list';
-import { ContactsComponent } from './contacts/contacts.component';
+import { ContactsComponent } from './contacts';
 import { ContactFeedDialogComponent } from './contacts/contact-feed';
 import { ContactFeedService } from './contacts/shared/services';
 import { ContactService } from './contacts/shared/services';
@@ -25,6 +25,7 @@ import { AppComponent } from './app.component';
 import { RoutingModule } from './app-routing.module';
 import { InvalidEmailModalComponent } from './contacts/shared';
 import { InvalidPhoneNumberModalComponent } from './contacts/shared';
+import {PreferencesService} from './contacts/shared/services/preferences.service';
 
 @NgModule({
   declarations: [
@@ -59,6 +60,7 @@ import { InvalidPhoneNumberModalComponent } from './contacts/shared';
   providers: [
     ContactService,
     ContactFeedService,
+    PreferencesService
   ],
   bootstrap: [AppComponent]
 })
